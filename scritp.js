@@ -50,6 +50,7 @@ addTaskBtn.addEventListener('click', () =>{
             element.classList.toggle('active')
         })    
     });
+    taskToAdd.value = ""
     modal.classList.remove('show');
     overlay.classList.remove('ovActive');
     }
