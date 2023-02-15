@@ -1,0 +1,278 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "FasterOne";
+    src: url("./fonts/FasterOne/FasterOne-Regular.ttf") format("truetype");
+  }
+@font-face {
+    font-family: "Roboto";
+    src: url("./fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+  }
+  
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+    max-height: 100vh;
+    background-color: #2A2A2A;
+    color:white;
+    margin: 0 auto;
+}
+.elements{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    color:white;
+    overflow-y: auto;
+    max-height: 80%;
+}
+
+#addBtn,#clearSelectedBtn{
+    padding: 1rem;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #2A2A2A;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
+    font-family: FasterOne ,Arial, Helvetica, sans-serif;
+}
+.title{
+    text-align: center;
+    font-family: FasterOne ,Arial, Helvetica, sans-serif;
+    font-size: 62px;
+    font-weight: bolder;
+    color: #FF6D35;
+    letter-spacing:10px;
+    user-select: none;
+
+}
+.firstBtns{
+    display: inline-block;
+    margin: 0 auto;
+}
+.toDo{
+    background-color: #FF6D35;
+    display: flex;
+    max-height: 80vh;
+    width: 50vw;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.toDoElement{
+    letter-spacing: 2px;
+    border: 2px solid #2A2A2A;
+    padding: 1rem;
+    width: 100%;
+    text-align: start;
+    border-radius: 5px;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-top:5px;
+    user-select: none;
+}
+
+.toDoElement:hover{
+    cursor: pointer;
+}
+/* .toDoElement::after{
+    content: "";
+    background-image:url('./images/pin-pinned-priority-svgrepo-com.svg');
+    background-size: 100% 100%;
+    display: inline-block;
+    height: 25px;
+    width:25px;
+    float:right;
+} */
+
+.toDoElement::after{
+    float: right;
+}
+
+.done{
+    background-color: #4bdb24;
+}
+
+.done::after{
+    content: "";
+    background-image:url('./images/check-mark-svgrepo-com.svg');
+    background-size: 100% 100%;
+    display: inline-block;
+    height: 25px;
+    width:25px;
+}
+
+.cancel{
+    background-color: red;
+    text-decoration-line: line-through;
+}
+
+.cancel::after{
+    content: "";
+    background-image:url('./images/cross-svgrepo-com.svg');
+    background-size: 100% 100%;
+    display: inline-block;
+    height: 25px;
+    width:25px;
+}
+
+.active{
+    background-color: #2A2A2A;
+}
+
+.active::after{
+    content: "";
+    background-image:url('./images/point-left-svgrepo-com.svg');
+    background-size: 100% 100%;
+    display: inline-block;
+    height: 25px;
+    width:25px;
+}
+
+.buttonsContainer{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100vw;
+}
+
+.btn{
+    font-size: 18px;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    padding: 1rem;
+    color:white;
+    border-radius: 5px;   
+    min-width: 15%;
+}
+
+.btn:first-child{
+    background-color: #4bdb24;
+}
+
+.btn:nth-child(2){
+    background-color: #2A2A2A;
+}
+.btn:nth-child(3){
+    background-color: red;
+}
+
+.modal{
+    color: white;
+    position: fixed;
+    background-color: #FF6D35;
+    z-index: 1;
+    top:50%;
+    left: 50%;
+    padding: 30px;
+    min-height: 50%;
+    max-width: 90%;
+    transform: translate(-50%,-50%) scale(0);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border:2px solid #2A2A2A;
+    transition: all 200ms ease-in-out;
+}
+.show{
+    transform: translate(-50%,-50%) scale(1);
+}
+.modalTitle{
+    font-family: FasterOne ,Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 32px;
+    user-select: none;
+}
+
+textarea{
+    font-size: 17px;
+    min-width: 320px;
+    text-align: center;
+}
+
+#addTask{
+    background-color: #2A2A2A;
+    font-family: FasterOne ,Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 1rem;
+    color: white;
+    user-select: none;
+    
+
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.8;
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    display: none;
+    
+}
+
+.ovActive{
+    display: block;
+}
+
+
+@media only screen and (max-width: 600px) {
+.toDoElement{
+    font-size: 10px;
+}
+
+.toDoElement:hover{
+    font-size: 11px;
+}
+
+.toDo{
+    width: 100vw;
+    height: 100vh;
+}
+
+.done::after{
+    height:15px;
+    width:15px;
+}
+
+
+.cancel::after{
+    height:15px;
+    width:15px;
+}
+
+
+.active::after{
+    height:15px;
+    width:15px;
+}
+
+.title{
+    font-size: 32px;
+}
+  }
