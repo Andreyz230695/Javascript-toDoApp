@@ -42,19 +42,18 @@ addTaskBtn.addEventListener('click', () =>{
         alert("You must type something!")
     }
     else{
-        const newElement = document.createElement('p');
-        newElement.classList.add("toDoElement");
-        newElement.classList.add("new");
-        const node = document.createTextNode(`${taskToAdd.value}`);
-        elemContainer.appendChild(newElement);
-        newElement.appendChild(node);
-
-        setTimeout(()=>{
-            newElement.classList.toggle("new");
-        },200)
+        // const newElement = document.createElement('p');
+        // newElement.classList.add("toDoElement")
+        // // newElement.classList.add("new");
+        // const node = document.createTextNode(`${taskToAdd.value}`);
+        // newElement.appendChild(node);
+        // elemContainer.appendChild(newElement);
         
-
-        // elemContainer.innerHTML += `<p class="toDoElement">${taskToAdd.value}</p>`;
+        // setTimeout(()=>{
+        //     newElement.classList.remove("new");
+        // },200)
+        
+        elemContainer.innerHTML += `<p class="toDoElement">${taskToAdd.value}</p>`;
         const elemNode = document.querySelectorAll('.toDoElement');
         const elemNodeArr = Array.from(elemNode);
         elemNodeArr.forEach(element => {
