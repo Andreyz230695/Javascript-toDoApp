@@ -42,7 +42,19 @@ addTaskBtn.addEventListener('click', () =>{
         alert("You must type something!")
     }
     else{
-        elemContainer.innerHTML += `<p class="toDoElement">${taskToAdd.value}</p>`;
+        const newElement = document.createElement('p');
+        newElement.classList.add("toDoElement");
+        newElement.classList.add("new");
+        const node = document.createTextNode(`${taskToAdd.value}`);
+        elemContainer.appendChild(newElement);
+        newElement.appendChild(node);
+
+        setTimeout(()=>{
+            newElement.classList.toggle("new");
+        },200)
+        
+
+        // elemContainer.innerHTML += `<p class="toDoElement">${taskToAdd.value}</p>`;
         const elemNode = document.querySelectorAll('.toDoElement');
         const elemNodeArr = Array.from(elemNode);
         elemNodeArr.forEach(element => {
@@ -59,7 +71,15 @@ addTaskBtn.addEventListener('click', () =>{
 
 //clear button
 clearBtn.addEventListener('click', () => {
-    elemContainer.innerHTML = "";
+    // elemContainer.innerHTML = "";
+    const elemNode = document.querySelectorAll('.toDoElement');
+    const elemNodeArr = Array.from(elemNode)
+    elemNodeArr.forEach(element => {
+        element.classList.toggle('skew');
+        setTimeout(() => {
+            element.remove()
+        },500)       
+    });
 })
 
 //toggle selection done
@@ -92,7 +112,11 @@ removeBtn.addEventListener('click' , () =>{
     const selectedTask = document.querySelectorAll('.active');
     const selectedTaskArr = Array.from(selectedTask);
     selectedTaskArr.forEach(task  => {
-        task.remove()
+        task.classList.add('skew')
+        setTimeout(()=>{
+            task.remove()
+        },500)
+       
     })
 })
 
